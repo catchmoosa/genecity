@@ -1,6 +1,8 @@
 # GeneCity
 The genecity simulation environment implemented as part of my Diploma dissertation in 2004.
 
+![Screenshot of GeneCity](https://github.com/eldemet/genecity/blob/master/code/gui/fullscreen1.jpg)
+
 Simulating an Artificial Society is an intriguing and challenging process, to help us to better understand the macroscopic ways in which humans function. Mathematical models usually make simplifications of the laws which govern societal ecosystems, by presuming that populations are homogeneous and that they cooperate in peace. In order to address the problems rising for heterogeneous populations, exploitation of agent technology can lead to systems where agents have a unique way of performing actions, as individuals.
 
 The study of specific scenario-based closed models may help us deliver some useful conclusions through proper data analysis. Interpreting a society and its behavior is a difficult task though, and perhaps impossible to completely cover in full range all its aspects, which may be visible, or be hidden under a chaotic way of behaviour.
