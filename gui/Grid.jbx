@@ -1,0 +1,15 @@
+[PropertyInfo]
+d1,int,false,false, , ,true,<default>
+d2,int,false,false, , ,true,<default>
+energyMap,int[][],false,false, , ,false,<default>
+foodMap,int[][],false,false, , ,false,<default>
+maxGridSizeX,int,false,false, , ,false,<default>
+maxGridSizeY,int,false,false, , ,false,<default>
+nameMap,String[][],false,false, , ,false,<default>
+nav,int[][],false,false, , ,false,<default>
+p,int[][],false,false, , ,false,<default>
+[IconNames]
+
+
+
+

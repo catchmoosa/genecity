@@ -1,0 +1,1103 @@
+package genecity.gui;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.tree.*;
+import java.beans.*;
+import com.borland.jbcl.layout.*;
+import genecity.Settings;
+import javax.swing.border.*;
+import javax.swing.event.*;
+import java.io.*;
+
+
+/**
+ * <p>Title: GeneCity</p>
+ * <p>Description: Epidemiological Simulation of a Hereditary Disease in a Multi-Agent System</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Eliades G. Demetrios
+ * @version 1.0
+ */
+
+public class MenuFrame extends JFrame {
+  public static Settings settings = new Settings();
+  public static Settings settings2 = new Settings();
+  public static Grid grid = new Grid();
+  public static DrawPanel drawPanel=new DrawPanel();
+  public static DrawPanel drawPanel2 = new DrawPanel();
+
+  JPanel contentPane;
+  JMenuBar jMenuBar1 = new JMenuBar();
+  JMenu jMenuFile = new JMenu();
+  JMenuItem jMenuFileExit = new JMenuItem();
+  JMenu jMenuHelp = new JMenu();
+  JMenuItem jMenuHelpAbout = new JMenuItem();
+  JToolBar jToolBar = new JToolBar();
+  JButton jButton1 = new JButton();
+  JButton jButton2 = new JButton();
+  /**
+   * IMAGES
+   */
+  ImageIcon image1;
+  ImageIcon image2;
+  ImageIcon image3;
+  ImageIcon image4;
+  ImageIcon image5;
+  ImageIcon image6;
+  ImageIcon image7;
+  ImageIcon image8;
+  ImageIcon image9;
+  ImageIcon image10;
+
+  JLabel statusBar = new JLabel();
+  BorderLayout borderLayout1 = new BorderLayout();
+  JDesktopPane jDesktopPane1 = new JDesktopPane();
+  JMenuItem jMenuItem1 = new JMenuItem();
+  JMenuItem jMenuItem2 = new JMenuItem();
+  JMenuItem jMenuItem3 = new JMenuItem();
+  JMenu jMenu1 = new JMenu();
+  JMenu jMenu2 = new JMenu();
+  JMenuItem jMenuItem8 = new JMenuItem();
+  JInternalFrame jInternalFrame1 = new JInternalFrame();
+  JInternalFrame jInternalFrame2 = new JInternalFrame();
+  JTabbedPane jTabbedPane1 = new JTabbedPane();
+  JMenuItem jMenuItem9 = new JMenuItem();
+  JMenu jMenu3 = new JMenu();
+  JMenuItem jMenuItem10 = new JMenuItem();
+  JMenuItem jMenuItem11 = new JMenuItem();
+  JMenuItem jMenuItem12 = new JMenuItem();
+  JPanel jPanel1 = new JPanel();
+  JPanel jPanel2 = new JPanel();
+  JPanel jPanel3 = new JPanel();
+  JLabel jLabel1 = new JLabel();
+  JLabel jLabel2 = new JLabel();
+  JLabel jLabel3 = new JLabel();
+  JLabel jLabel4 = new JLabel();
+  JLabel jLabel5 = new JLabel();
+  JLabel jLabel6 = new JLabel();
+  JLabel jLabel7 = new JLabel();
+  JButton jButton4 = new JButton();
+  JButton jButton5 = new JButton();
+  JInternalFrame jInternalFrame3 = new JInternalFrame();
+  JScrollPane jScrollPane1 = new JScrollPane();
+  JTextArea jTextArea1 = new JTextArea();
+  JLabel jLabel8 = new JLabel();
+  JLabel jLabel10 = new JLabel();
+  JLabel jLabel11 = new JLabel();
+  JLabel jLabel12 = new JLabel();
+  JLabel jLabel13 = new JLabel();
+  JLabel jLabel14 = new JLabel();
+  JLabel jLabel15 = new JLabel();
+  JLabel jLabel16 = new JLabel();
+  JLabel jLabel17 = new JLabel();
+  JLabel jLabel9 = new JLabel();
+  JLabel jLabel18 = new JLabel();
+  JInternalFrame jInternalFrame4 = new JInternalFrame();
+  GridBagLayout gridBagLayout1 = new GridBagLayout();
+  JSpinner jSpinner1 = new JSpinner();
+  JSpinner jSpinner2 = new JSpinner();
+  JSpinner jSpinner3 = new JSpinner();
+  JSpinner jSpinner4 = new JSpinner();
+  JInternalFrame jInternalFrame5 = new JInternalFrame();
+  JFileChooser jFileChooser1 = new JFileChooser();
+  private String menuComboBox4[]={"High", "A lot", "Median", "Low", "Forbitten"};
+  private String menuComboBox1[]={"Autosomatic", "Sex-related"};
+  private String menuComboBox2[]={"Normal", "Slight", "Obvious", "Serious"};
+  JComboBox jComboBox1 = new JComboBox(menuComboBox1);
+  JCheckBox jCheckBox1 = new JCheckBox();
+  JCheckBox jCheckBox2 = new JCheckBox();
+  JTextField jTextField1 = new JTextField();
+  BorderLayout borderLayout2 = new BorderLayout();
+  GridLayout gridLayout1 = new GridLayout();
+  JButton jButton13 = new JButton();
+  JMenuItem jMenuItem15 = new JMenuItem();
+  JButton jButton7 = new JButton();
+  JMenuItem jMenuItem13 = new JMenuItem();
+  JMenuItem jMenuItem4 = new JMenuItem();
+  String dialogText="GeneCity Launched";
+  JButton jButton3 = new JButton();
+  JLabel jLabel19 = new JLabel();
+  XYLayout xYLayout1 = new XYLayout();
+  JSpinner jSpinner7 = new JSpinner();
+  JButton jButton8 = new JButton();
+  /**
+   * Spinner Settings
+   */
+  SpinnerNumberModel agentPopulationSpinnerNumberModel = new SpinnerNumberModel(100,50,500,10);
+  SpinnerNumberModel legalMarriageAgeSpinnerNumberModel = new SpinnerNumberModel(18,15,21,1);
+  SpinnerNumberModel lifeSpanSpinnerNumberModel = new SpinnerNumberModel(75,68,85,1);
+  SpinnerNumberModel ageDifferenceCouplesSpinnerNumberModel = new SpinnerNumberModel(4,0,7,0.5);
+  SpinnerNumberModel fertilityRatioSpinnerNumberModel = new SpinnerNumberModel(1.3,0.7,3,0.1);
+  SpinnerNumberModel marriageOverPopulationSpinnerNumberModel = new SpinnerNumberModel(1.5,0.5,3,0.1);
+  SpinnerNumberModel beginInformationDegreeSpinnerNumberModel = new SpinnerNumberModel(0,0,500,10);
+  SpinnerNumberModel prebirthControlAbortionSpinnerNumberModel = new SpinnerNumberModel(0,0,100,0.2);
+  SpinnerNumberModel agentMateVisionSpinnerNumberModel = new SpinnerNumberModel(30,0,100,1);
+  SpinnerNumberModel realMutationRateSpinnerNumberModel = new SpinnerNumberModel(0.003,0,2,0.001);
+  SpinnerNumberModel patientsOverPopulationSpinnerNumberModel = new SpinnerNumberModel(5,0,100,1);
+  SpinnerNumberModel meanAgeEffectionSpinnerNumberModel = new SpinnerNumberModel(17,0,50,1);
+  SpinnerNumberModel lifeYearsExpectancyDiseaseSpinnerNumberModel = new SpinnerNumberModel(17,0,50,1);
+  SpinnerNumberModel reproductionAbilityPercSpinnerNumberModel = new SpinnerNumberModel(90,0,100,1);
+
+
+  /**
+   * Border Settings
+   */
+  TitledBorder titledBorder1;
+  TitledBorder titledBorder2;
+  TitledBorder titledBorder3;
+  TitledBorder titledBorder4;
+  JSpinner jSpinner8 = new JSpinner();
+  JSpinner jSpinner9 = new JSpinner();
+  JComboBox jComboBox4 = new JComboBox(menuComboBox4);
+  JSpinner jSpinner10 = new JSpinner();
+  JSpinner jSpinner11 = new JSpinner();
+  JButton jButton10 = new JButton();
+  JButton jButton11 = new JButton();
+  JSpinner jSpinner12 = new JSpinner();
+  JSpinner jSpinner13 = new JSpinner();
+  JSpinner jSpinner14 = new JSpinner();
+  JSpinner jSpinner15 = new JSpinner();
+  XYLayout xYLayout2 = new XYLayout();
+  XYLayout xYLayout3 = new XYLayout();
+  XYLayout xYLayout4 = new XYLayout();
+  TitledBorder titledBorder5;
+  TitledBorder titledBorder6;
+  TitledBorder titledBorder7;
+  JButton jButton6 = new JButton();
+  JButton jButton9 = new JButton();
+  JCheckBox jCheckBox3 = new JCheckBox();
+  JCheckBox jCheckBox4 = new JCheckBox();
+  JSpinner jSpinner5 = new JSpinner();
+  JComboBox jComboBox2 = new JComboBox(menuComboBox2);
+  JButton jButton12 = new JButton();
+  JButton jButton14 = new JButton();
+  JButton jButton15 = new JButton();
+  JButton jButton16 = new JButton();
+  JButton jButton17 = new JButton();
+  JPanel jPanel4 = new JPanel();
+  JScrollPane jScrollPane2 = new JScrollPane();
+  JSlider jSlider1 = new JSlider(2, 30, 10);
+  BorderLayout borderLayout3 = new BorderLayout();
+  JPanel jPanel5 = new JPanel();
+  BorderLayout borderLayout4 = new BorderLayout();
+  JScrollPane jScrollPane3 = new JScrollPane();
+  JSlider jSlider2 = new JSlider(2, 30, 10);
+  JLabel jLabel20 = new JLabel();
+  JLabel jLabel21 = new JLabel();
+
+  LoadFileFilter loadFileFilter = new LoadFileFilter();
+  TitledBorder titledBorder8;
+
+
+  //Construct the frame
+  public MenuFrame() {
+    enableEvents(AWTEvent.WINDOW_EVENT_MASK);
+    try {
+      jbInit();
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  //Component initialization
+  private void jbInit() throws Exception  {
+    titledBorder5 = new TitledBorder("");
+    titledBorder6 = new TitledBorder("");
+    titledBorder7 = new TitledBorder("");
+    titledBorder8 = new TitledBorder("");
+    setIconImage(Toolkit.getDefaultToolkit().createImage("smallogo.gif"));
+    this.setLocale(java.util.Locale.getDefault());
+    this.setResizable(true);
+    image1 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("openFile.png"));
+    image2 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("closeFile.png"));
+    image3 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("help.png"));
+    image4 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("config.png"));
+    image5 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("agents.png"));
+    image6 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("piechart.png"));
+    image7 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("info.png"));
+    image8 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("load.png"));
+    image9 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("save.png"));
+    image10 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("singleagent.png"));
+
+
+    titledBorder1 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"Demographical Data");
+    titledBorder2 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"Sociological Data");
+
+    titledBorder3 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"Medical and Biological Data");
+    titledBorder4 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"Demographical Data");
+
+    contentPane = (JPanel) this.getContentPane();
+    contentPane.setLayout(borderLayout1);
+
+    jComboBox4.setMaximumRowCount(5);
+
+    //Size of MenuFrame
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    this.setSize(screenSize.width, screenSize.height-30);
+
+
+    /**
+     * drawpanel
+     */
+    drawPanel.setOpaque(false);
+    jLabel20.setText(" ");
+    jLabel21.setText(" ");
+    jInternalFrame2.setMaximizable(true);
+    jInternalFrame4.setMaximizable(true);
+    jButton12.setActionCommand("");
+    jButton14.setActionCommand("");
+    jButton15.setActionCommand("");
+    jButton16.setActionCommand("");
+    jButton7.setActionCommand("");
+    jButton17.setActionCommand("");
+    jFileChooser1.setAcceptAllFileFilterUsed(true);
+    jFileChooser1.setFileFilter(loadFileFilter);
+    jButton9.addActionListener(new MenuFrame_jButton9_actionAdapter(this));
+    jMenuItem2.addActionListener(new MenuFrame_jMenuItem2_actionAdapter(this));
+    jButton13.addActionListener(new MenuFrame_jButton13_actionAdapter(this));
+    jScrollPane3.getViewport().add(drawPanel, null);
+    drawPanel2.setOpaque(false);
+    jScrollPane2.getViewport().add(drawPanel2,null);
+
+    this.setTitle("GeneCity Epidemiological Simulation");
+
+    statusBar.setText(" ");
+    jMenuFile.setText("File");
+    jMenuFileExit.setText("Exit");
+    jMenuFileExit.addActionListener(new MenuFrame_jMenuFileExit_ActionAdapter(this));
+    jMenuHelp.setText("Help");
+    jMenuHelpAbout.setText("About");
+    jMenuHelpAbout.addActionListener(new MenuFrame_jMenuHelpAbout_ActionAdapter(this));
+    jButton1.addActionListener(new MenuFrame_jButton1_actionAdapter(this));
+    jButton1.addActionListener(new MenuFrame_jButton1_actionAdapter(this));
+    jButton1.setMaximumSize(new Dimension(70, 70));
+    jButton1.setMinimumSize(new Dimension(70, 70));
+    jButton1.setPreferredSize(new Dimension(70, 70));
+    jButton1.setToolTipText("Configurations");
+    jButton1.setBorderPainted(true);
+    jButton1.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton1.setHorizontalTextPosition(SwingConstants.CENTER);
+    jButton1.setIcon(image4);
+    jButton1.setText("");
+    jButton1.setVerticalAlignment(SwingConstants.CENTER);
+    jButton1.setVerticalTextPosition(SwingConstants.CENTER);
+    jButton2.setIcon(image5);
+    jButton2.setText("");
+    jButton2.setVerticalAlignment(SwingConstants.CENTER);
+    jButton2.setVerticalTextPosition(SwingConstants.CENTER);
+    jButton2.addActionListener(new MenuFrame_jButton2_actionAdapter(this));
+    jButton2.addActionListener(new MenuFrame_jButton2_actionAdapter(this));
+    jButton2.setBorder(BorderFactory.createEtchedBorder());
+    jButton2.setMaximumSize(new Dimension(70, 70));
+    jButton2.setMinimumSize(new Dimension(70, 70));
+    jButton2.setPreferredSize(new Dimension(70, 70));
+    jButton2.setToolTipText("Family Network");
+    jButton2.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton2.setHorizontalTextPosition(SwingConstants.CENTER);
+    jMenuItem1.setText("New Simulation");
+    jMenuItem2.setText("Save Simulation");
+    jMenuItem3.setText("Load");
+    jMenuItem3.addActionListener(new MenuFrame_jMenuItem3_actionAdapter(this));
+    jMenu1.setText("Settings");
+    jMenu2.setText("JADE");
+    jMenuItem8.setText("View Framework");
+    jInternalFrame1.setClosable(true);
+    jInternalFrame1.setClosed(true);
+    jInternalFrame1.setIcon(false);
+    jInternalFrame1.setIconifiable(true);
+    jInternalFrame1.setJMenuBar(null);
+    jInternalFrame1.setLayer(0);
+    jInternalFrame1.setMaximizable(false);
+    jInternalFrame1.setNormalBounds(new Rectangle(10, 10, 436, 459));
+    jInternalFrame1.setTitle("Settings");
+    jInternalFrame1.getContentPane().setBackground(Color.lightGray);
+    jInternalFrame1.setEnabled(true);
+    jInternalFrame1.setAlignmentY((float) 0.5);
+    jInternalFrame1.setDebugGraphicsOptions(0);
+    jInternalFrame1.setDoubleBuffered(false);
+    jInternalFrame1.setMinimumSize(new Dimension(83, 26));
+    jInternalFrame1.setPreferredSize(new Dimension(400, 400));
+    jInternalFrame1.getContentPane().setLayout(xYLayout1);
+    jInternalFrame2.setClosable(true);
+    jInternalFrame2.setIcon(false);
+    jInternalFrame2.setIconifiable(true);
+    jInternalFrame2.setNormalBounds(new Rectangle(10, 10, 400, 400));
+    jInternalFrame2.setTitle("Family Network Grid");
+    jInternalFrame2.getContentPane().setBackground(SystemColor.control);
+    jInternalFrame2.setPreferredSize(new Dimension(100, 100));
+    jTabbedPane1.setTabPlacement(JTabbedPane.TOP);
+    jTabbedPane1.setBackground(SystemColor.inactiveCaptionBorder);
+    jTabbedPane1.setEnabled(true);
+    jTabbedPane1.setForeground(Color.black);
+    jTabbedPane1.setBorder(null);
+    jTabbedPane1.setDoubleBuffered(false);
+    jTabbedPane1.setMaximumSize(new Dimension(32767, 32767));
+    jTabbedPane1.setRequestFocusEnabled(true);
+    jMenuItem9.setText("Set Defaults");
+    jMenuItem9.addActionListener(new MenuFrame_jMenuItem9_actionAdapter(this));
+    jMenu3.setText("Simulation");
+    jMenuItem10.setText("Start");
+    jMenuItem11.setText("Pause");
+    jMenuItem12.setText("Manual");
+    jPanel2.setBackground(SystemColor.inactiveCaptionBorder);
+    jPanel2.setAlignmentX((float) 0.0);
+    jPanel2.setAlignmentY((float) 0.0);
+    jPanel2.setBorder(titledBorder1);
+    jPanel2.setMaximumSize(new Dimension(32767, 32767));
+    jPanel2.setToolTipText("");
+    jPanel2.setLayout(xYLayout2);
+    jLabel1.setText("Agent Population:");
+    jLabel2.setText("Legal Marriage Age:");
+    jLabel3.setToolTipText("");
+    jLabel3.setText("% Marriages over Population:");
+    jLabel4.setText("Life Span (years):");
+    jLabel5.setRequestFocusEnabled(true);
+    jLabel5.setText("Maximun Age Difference in couples:");
+    jLabel6.setText("Description");
+    jPanel3.setLayout(xYLayout4);
+    jLabel7.setText("Method of transmition");
+    jPanel3.setBackground(SystemColor.inactiveCaptionBorder);
+    jPanel3.setBorder(titledBorder3);
+    jPanel1.setBackground(SystemColor.inactiveCaptionBorder);
+    jPanel1.setBorder(titledBorder2);
+    jPanel1.setLayout(xYLayout3);
+    jButton4.setText("Apply");
+    jButton4.addActionListener(new MenuFrame_jButton4_actionAdapter(this));
+    jButton4.addActionListener(new MenuFrame_jButton4_actionAdapter(this));
+    jButton5.setText("Default");
+    jButton5.addActionListener(new MenuFrame_jButton5_actionAdapter(this));
+    jDesktopPane1.setBackground(SystemColor.desktop);
+    jDesktopPane1.setBorder(null);
+    jDesktopPane1.setToolTipText("");
+    jInternalFrame3.setFrameIcon(image3);
+    jInternalFrame3.setIcon(false);
+    jInternalFrame3.setIconifiable(true);
+    jInternalFrame3.setMaximizable(true);
+    jInternalFrame3.setMaximum(false);
+    jInternalFrame3.setResizable(true);
+    jInternalFrame3.setTitle("Dialog Box");
+    jInternalFrame3.getContentPane().setBackground(SystemColor.textHighlight);
+    jInternalFrame3.setEnabled(true);
+    jInternalFrame3.setPreferredSize(new Dimension(100, 100));
+    jInternalFrame3.setBounds(new Rectangle(386, 376, 400, 150));
+    jTextArea1.setMinimumSize(new Dimension(126, 17));
+    jTextArea1.setEditable(false);
+    jTextArea1.setText(dialogText);
+    jTextArea1.setColumns(0);
+    jTextArea1.setLineWrap(true);
+    jLabel8.setText("Phenotype");
+    jLabel10.setText("Communities Affected");
+    jLabel11.setText("Real Mutation Rate");
+    jLabel12.setText("% Patients over Populations");
+    jLabel13.setText("Age of Effection");
+    jLabel14.setText("Years of life expected in disease");
+    jLabel15.setText("Reproduction Ability");
+    jLabel16.setText("Global Information Degree");
+    jLabel17.setText("%Pre-birth control and abortion");
+    jLabel9.setText("%Agent - Mate Visibility");
+    jLabel18.setText("Acceptability in Intercommunitive Marriages");
+    jInternalFrame4.setClosable(true);
+    jInternalFrame4.setIcon(false);
+    jInternalFrame4.setIconifiable(true);
+    jInternalFrame4.setTitle("Single Agent Grid");
+    jInternalFrame5.setClosable(true);
+    jInternalFrame5.setClosed(false);
+    jInternalFrame5.setIcon(false);
+    jInternalFrame5.setResizable(true);
+    jInternalFrame5.setTitle("Metrics");
+    jInternalFrame5.setEnabled(false);
+    jInternalFrame5.setDoubleBuffered(false);
+    jComboBox1.addActionListener(new MenuFrame_jComboBox1_actionAdapter(this));
+    jCheckBox1.setBackground(SystemColor.activeCaptionBorder);
+    jCheckBox1.setText("Greek (blue)");
+    jCheckBox2.setBackground(SystemColor.inactiveCaptionBorder);
+    jCheckBox2.setText("Turk (red)");
+    jTextField1.setText("");
+    jButton13.setBorder(BorderFactory.createEtchedBorder());
+    jButton13.setMaximumSize(new Dimension(70, 70));
+    jButton13.setMinimumSize(new Dimension(70, 70));
+    jButton13.setPreferredSize(new Dimension(70, 70));
+    jButton13.setToolTipText("View Metrics");
+    jButton13.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton13.setHorizontalTextPosition(SwingConstants.CENTER);
+    jButton13.setIcon(image6);
+    jButton13.setText("");
+    jButton13.setVerticalAlignment(SwingConstants.CENTER);
+    jButton13.setVerticalTextPosition(SwingConstants.CENTER);
+    jMenuItem15.setText("Save Dialogs");
+    jButton7.setBorder(BorderFactory.createEtchedBorder());
+    jButton7.setMaximumSize(new Dimension(70, 70));
+    jButton7.setMinimumSize(new Dimension(70, 70));
+    jButton7.setPreferredSize(new Dimension(70, 70));
+    jButton7.setToolTipText("Information");
+    jButton7.setVerifyInputWhenFocusTarget(true);
+    jButton7.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton7.setHorizontalTextPosition(SwingConstants.CENTER);
+    jButton7.setIcon(image7);
+    jButton7.setText("");
+    jButton7.setVerticalAlignment(SwingConstants.CENTER);
+    jButton7.setVerticalTextPosition(SwingConstants.CENTER);
+    jMenuItem13.setText("Menu");
+    jMenuItem13.addActionListener(new MenuFrame_jMenuItem13_actionAdapter(this));
+    jMenuItem4.setText("Stop");
+    jButton3.setText("Save Settings");
+    jSpinner4.setModel(ageDifferenceCouplesSpinnerNumberModel);
+    jSpinner3.setModel(legalMarriageAgeSpinnerNumberModel);
+    jSpinner2.setModel(lifeSpanSpinnerNumberModel);
+    jSpinner1.setModel(agentPopulationSpinnerNumberModel);
+    jSpinner1.setEnabled(true);
+    jSpinner1.setToolTipText("");
+    jLabel19.setText("Fertility Ratio:");
+    jSpinner7.setModel(fertilityRatioSpinnerNumberModel);
+    jButton8.setText("Cancel");
+    jSpinner8.setModel(marriageOverPopulationSpinnerNumberModel);
+    jSpinner9.setModel(beginInformationDegreeSpinnerNumberModel);
+    jSpinner10.setModel(prebirthControlAbortionSpinnerNumberModel);
+    jSpinner11.setModel(agentMateVisionSpinnerNumberModel);
+    jButton10.addActionListener(new MenuFrame_jButton10_actionAdapter(this));
+    jButton10.setText("Default");
+    jButton10.addActionListener(new MenuFrame_jButton10_actionAdapter(this));
+    jButton11.setText("Default");
+    jButton11.addActionListener(new MenuFrame_jButton11_actionAdapter(this));
+    jButton11.addActionListener(new MenuFrame_jButton11_actionAdapter(this));
+    jSpinner12.setModel(meanAgeEffectionSpinnerNumberModel);
+    jSpinner13.setModel(realMutationRateSpinnerNumberModel);
+    jSpinner14.setModel(patientsOverPopulationSpinnerNumberModel);
+    jSpinner15.setModel(lifeYearsExpectancyDiseaseSpinnerNumberModel);
+    jSpinner15.setEnabled(false);
+    jButton6.setMaximumSize(new Dimension(70, 70));
+    jButton6.setMinimumSize(new Dimension(70, 70));
+    jButton6.setPreferredSize(new Dimension(70, 70));
+    jButton6.setToolTipText("Load File");
+    jButton6.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton6.setHorizontalTextPosition(SwingConstants.CENTER);
+    jButton6.setIcon(image8);
+    jButton6.setText("");
+    jButton6.setVerticalAlignment(SwingConstants.CENTER);
+    jButton6.setVerticalTextPosition(SwingConstants.CENTER);
+    jButton6.addActionListener(new MenuFrame_jButton6_actionAdapter(this));
+    jButton9.setForeground(Color.black);
+    jButton9.setMaximumSize(new Dimension(70, 70));
+    jButton9.setMinimumSize(new Dimension(70, 70));
+    jButton9.setPreferredSize(new Dimension(70, 70));
+    jButton9.setToolTipText("Save to File");
+    jButton9.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton9.setHorizontalTextPosition(SwingConstants.CENTER);
+    jButton9.setIcon(image9);
+    jButton9.setText("");
+    jButton9.setVerticalAlignment(SwingConstants.CENTER);
+    jButton9.setVerticalTextPosition(SwingConstants.CENTER);
+    jToolBar.setMaximumSize(new Dimension(55, 68));
+    jCheckBox3.setBackground(SystemColor.inactiveCaptionBorder);
+    jCheckBox3.setSelected(true);
+    jCheckBox3.setText("No affect");
+    jCheckBox4.setBackground(SystemColor.activeCaptionBorder);
+    jCheckBox4.setText("No");
+    jSpinner5.setModel(reproductionAbilityPercSpinnerNumberModel);
+    jButton12.setVerticalTextPosition(SwingConstants.CENTER);
+    jButton12.addActionListener(new MenuFrame_jButton12_actionAdapter(this));
+    jButton12.setVerticalAlignment(SwingConstants.CENTER);
+    jButton12.setHorizontalTextPosition(SwingConstants.CENTER);
+    jButton12.setIcon(image10);
+    jButton12.setHorizontalAlignment(SwingConstants.CENTER);
+    jButton12.setVerifyInputWhenFocusTarget(true);
+    jButton12.setToolTipText("Single Agent Network");
+    jButton12.setPreferredSize(new Dimension(70, 70));
+    jButton12.setMinimumSize(new Dimension(70, 70));
+    jButton12.setMaximumSize(new Dimension(70, 70));
+    jButton12.setBorder(BorderFactory.createEtchedBorder());
+    jButton14.setFont(new java.awt.Font("Dialog", 1, 22));
+    jButton14.setBorder(BorderFactory.createEtchedBorder());
+    jButton14.setMaximumSize(new Dimension(70, 70));
+    jButton14.setMinimumSize(new Dimension(70, 70));
+    jButton14.setPreferredSize(new Dimension(70, 70));
+    jButton14.setToolTipText("JADE Framework");
+    jButton14.setText("JADE");
+    jButton15.setFont(new java.awt.Font("Dialog", 0, 25));
+    jButton15.setMaximumSize(new Dimension(70, 70));
+    jButton15.setMinimumSize(new Dimension(70, 70));
+    jButton15.setPreferredSize(new Dimension(70, 70));
+    jButton15.setToolTipText("Run SImulation");
+    jButton15.setText("Run");
+    jButton16.setFont(new java.awt.Font("Dialog", 0, 20));
+    jButton16.setMaximumSize(new Dimension(70, 70));
+    jButton16.setMinimumSize(new Dimension(70, 70));
+    jButton16.setPreferredSize(new Dimension(70, 70));
+    jButton16.setToolTipText("Pause");
+    jButton16.setText("Pause");
+    jButton17.setFont(new java.awt.Font("Dialog", 0, 25));
+    jButton17.setMaximumSize(new Dimension(70, 70));
+    jButton17.setMinimumSize(new Dimension(70, 70));
+    jButton17.setPreferredSize(new Dimension(70, 70));
+    jButton17.setToolTipText("Stop");
+    jButton17.setText("Stop");
+    jPanel4.setLayout(borderLayout3);
+    jPanel5.setMaximumSize(new Dimension(32767, 32767));
+    jPanel5.setLayout(borderLayout4);
+    jSlider2.setOrientation(JSlider.VERTICAL);
+    jSlider2.addChangeListener(new MenuFrame_jSlider2_changeAdapter(this));
+    jSlider1.setOrientation(JSlider.VERTICAL);
+    jSlider1.addChangeListener(new MenuFrame_jSlider1_changeAdapter(this));
+    jToolBar.add(jButton6, null); //load
+    jToolBar.add(jButton9, null);
+    jToolBar.add(jButton1);
+    jToolBar.add(jButton12, null); //save
+    jToolBar.addSeparator();//config
+    jToolBar.add(jButton2); //run
+    jToolBar.add(jButton13, null);
+    jToolBar.add(jButton14, null);
+        jToolBar.addSeparator();
+    jToolBar.add(jButton15, null);
+    jToolBar.add(jButton16, null);
+    jToolBar.add(jButton17, null);
+    jToolBar.add(jButton7, null);
+    jMenuFile.add(jMenuItem1);
+    jMenuFile.add(jMenuItem2);
+    jMenuFile.add(jMenuItem3);
+    jMenuFile.addSeparator();
+    jMenuFile.add(jMenuItem15);
+    jMenuFile.add(jMenuFileExit);
+    jMenuHelp.add(jMenuItem12);
+    jMenuHelp.addSeparator();
+    jMenuHelp.add(jMenuHelpAbout);
+    jMenuBar1.add(jMenuFile);
+    jMenuBar1.add(jMenu1);
+    jMenuBar1.add(jMenu3);
+    jMenuBar1.add(jMenu2);
+    jMenuBar1.add(jMenuHelp);
+    this.setJMenuBar(jMenuBar1);
+    contentPane.add(jToolBar, BorderLayout.NORTH);
+    contentPane.add(statusBar, BorderLayout.SOUTH);
+    contentPane.add(jDesktopPane1, BorderLayout.CENTER);
+    jDesktopPane1.add(jInternalFrame3);
+    jInternalFrame3.getContentPane().add(jScrollPane1, BorderLayout.CENTER);
+    jScrollPane1.getViewport().add(jTextArea1, null);
+    jMenu1.add(jMenuItem13);
+    jMenu1.add(jMenuItem9);
+    jMenu2.add(jMenuItem8);
+    jPanel2.add(jLabel2,   new XYConstraints(15, 50, 127, -1));
+    jPanel2.add(jSpinner2,  new XYConstraints(307, 91, 54, 25));
+    jPanel2.add(jLabel1,   new XYConstraints(15, 3, 115, -1));
+    jPanel2.add(jSpinner1,  new XYConstraints(307, 0, 54, 25));
+    jPanel2.add(jSpinner3,  new XYConstraints(305, 45, 54, 25));
+    jPanel2.add(jLabel4,  new XYConstraints(15, 96, 133, -1));
+    jPanel2.add(jLabel5,  new XYConstraints(15, 143, 234, -1));
+    jPanel2.add(jSpinner4,  new XYConstraints(305, 138, 54, 25));
+    jPanel2.add(jLabel3,  new XYConstraints(15, 189, 204, -1));
+    jPanel2.add(jLabel19,   new XYConstraints(15, 236, 86, -1));
+    jPanel2.add(jSpinner7,  new XYConstraints(305, 231, 54, -1));
+    jPanel2.add(jSpinner8,  new XYConstraints(305, 184, 54, -1));
+    jPanel2.add(jButton5,  new XYConstraints(299, 271, 83, -1));
+    jTabbedPane1.add(jPanel2,   "Demography");
+    jInternalFrame1.getContentPane().add(jButton4,  new XYConstraints(337, 384, 84, -1));
+    jInternalFrame1.getContentPane().add(jTabbedPane1,    new XYConstraints(13, 10, 410, 356));
+    jPanel1.add(jLabel16,   new XYConstraints(19, 8, 219, -1));
+    jPanel1.add(jLabel17,   new XYConstraints(19, 74, 224, -1));
+    jPanel1.add(jLabel9,   new XYConstraints(19, 140, 148, -1));
+    jPanel1.add(jLabel18,     new XYConstraints(19, 206, 258, -1));
+    jPanel1.add(jSpinner9,  new XYConstraints(303, 3, 54, -1));
+    jPanel1.add(jSpinner10,  new XYConstraints(303, 70, 54, -1));
+    jPanel1.add(jSpinner11,  new XYConstraints(303, 136, 54, -1));
+    jPanel1.add(jComboBox4,   new XYConstraints(269, 202, 88, -1));
+    jPanel1.add(jButton10,    new XYConstraints(299, 271, 83, -1));
+    jTabbedPane1.add(jPanel1, "Sociological");
+    jPanel3.add(jLabel8,    new XYConstraints(19, 107, 66, -1));
+    jPanel3.add(jLabel11,    new XYConstraints(19, 75, 104, -1));
+    jPanel3.add(jButton11,   new XYConstraints(299, 271, 83, -1));
+    jPanel3.add(jLabel15,   new XYConstraints(19, 236, 153, -1));
+    jPanel3.add(jLabel6,  new XYConstraints(19, 10, 71, -1));
+    jPanel3.add(jLabel10,      new XYConstraints(19, 42, 136, -1));
+    jPanel3.add(jCheckBox2,  new XYConstraints(251, 38, 83, -1));
+    jPanel3.add(jCheckBox1,   new XYConstraints(143, 38, 104, -1));
+    jPanel3.add(jLabel13,     new XYConstraints(231, 170, 89, -1));
+    jPanel3.add(jLabel14,       new XYConstraints(19, 204, 199, -1));
+    jPanel3.add(jLabel7,   new XYConstraints(19, 139, 134, -1));
+    jPanel3.add(jComboBox1,      new XYConstraints(256, 134, 92, 24));
+    jPanel3.add(jLabel12,      new XYConstraints(19, 170, 176, -1));
+    jPanel3.add(jSpinner14,  new XYConstraints(165, 165, 54, -1));
+    jPanel3.add(jSpinner15,      new XYConstraints(294, 199, 54, -1));
+    jPanel3.add(jCheckBox3,   new XYConstraints(197, 200, -1, -1));
+    jPanel3.add(jSpinner5,        new XYConstraints(294, 231, 54, -1));
+    jPanel3.add(jSpinner12,  new XYConstraints(325, 165, 54, -1));
+    jPanel3.add(jComboBox2,           new XYConstraints(256, 102, 92, 24));
+    jPanel3.add(jSpinner13,        new XYConstraints(256, 70, 92, -1));
+    jPanel3.add(jTextField1, new XYConstraints(100, 8, 248, -1));
+    jPanel3.add(jCheckBox4,   new XYConstraints(197, 232, -1, -1));
+    jInternalFrame1.getContentPane().add(jButton3,    new XYConstraints(25, 384, 121, 25));
+    jInternalFrame1.getContentPane().add(jButton8,    new XYConstraints(263, 384, -1, 25));
+    jTabbedPane1.add(jPanel3,      "Medical - Biological");
+    jMenu3.add(jMenuItem10);
+    jMenu3.add(jMenuItem11);
+    jMenu3.add(jMenuItem4);
+    jInternalFrame4.getContentPane().add(jPanel4, BorderLayout.CENTER);
+    jPanel4.add(jSlider1, BorderLayout.EAST);
+    jPanel4.add(jScrollPane2, BorderLayout.CENTER);
+    jPanel4.add(jLabel20,  BorderLayout.SOUTH);
+    jInternalFrame2.getContentPane().add(jPanel5, BorderLayout.CENTER);
+    jPanel5.add(jScrollPane3, BorderLayout.CENTER);
+    jPanel5.add(jSlider2, BorderLayout.EAST);
+    jPanel5.add(jLabel21,  BorderLayout.SOUTH);
+    jInternalFrame3.setSize(400,150);
+    jInternalFrame3.setVisible(true);
+
+
+  }
+  //File | Exit action performed
+  public void jMenuFileExit_actionPerformed(ActionEvent e) {
+    System.exit(0);
+  }
+  //Help | About action performed
+  public void jMenuHelpAbout_actionPerformed(ActionEvent e) {
+    MenuFrame_AboutBox dlg = new MenuFrame_AboutBox(this);
+    Dimension dlgSize = dlg.getPreferredSize();
+    Dimension frmSize = getSize();
+    Point loc = getLocation();
+    dlg.setLocation((frmSize.width - dlgSize.width) / 2 + loc.x, (frmSize.height - dlgSize.height) / 2 + loc.y);
+    dlg.setModal(true);
+    dlg.pack();
+    dlg.show();
+  }
+  //Overridden so we can exit when window is closed
+  protected void processWindowEvent(WindowEvent e) {
+    super.processWindowEvent(e);
+    if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+      jMenuFileExit_actionPerformed(null);
+    }
+  }
+
+  void jButton1_actionPerformed(ActionEvent e) {
+    //settings MENU
+    if (jInternalFrame1.isVisible()==false){
+    jDesktopPane1.add(jInternalFrame1);
+    jInternalFrame1.setSize(440, 450);
+    jInternalFrame1.setVisible(true);
+    }
+
+  }
+
+  void jButton2_actionPerformed(ActionEvent e) {
+    if (jInternalFrame2.isVisible()==false){
+      jDesktopPane1.add(jInternalFrame2);
+      jInternalFrame2.setSize(450, 350);
+      jInternalFrame2.setVisible(true);
+    }
+  }
+
+  void jButton4_actionPerformed(ActionEvent e) {
+    /**
+     * Apply Button in Settings
+     */
+    jButton4.setEnabled(false);
+  }
+
+
+class MenuFrame_jMenuFileExit_ActionAdapter implements ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuFileExit_ActionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuFileExit_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jMenuHelpAbout_ActionAdapter implements ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuHelpAbout_ActionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuHelpAbout_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton1_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton1_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton1_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton2_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton2_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton2_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton4_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton4_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton4_actionPerformed(e);
+  }
+}
+
+  void jButton5_actionPerformed(ActionEvent e) {
+    /**
+     * Default Settings Button Demography
+     *
+     */
+
+
+  }
+
+
+
+
+  void jMenuItem3_actionPerformed(ActionEvent e) {
+    /**
+     *FILE/LOAD
+     */
+    this.jButton6_actionPerformed(e);
+  }
+
+
+  void jMenuItem9_actionPerformed(ActionEvent e) {
+    dialogText= dialogText+"\n"+"Default Settings Applied in Simulation";
+    jTextArea1.setText(dialogText);
+  }
+
+  void jComboBox1_actionPerformed(ActionEvent e) {
+
+  }
+
+  void jButton11_actionPerformed(ActionEvent e) {
+
+  }
+
+  void jButton10_actionPerformed(ActionEvent e) {
+  }
+
+  void jButton6_actionPerformed(ActionEvent e) {
+    /**
+     * LOAD Button
+     */
+
+    int returnVal = jFileChooser1.showOpenDialog(this);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+        File file = jFileChooser1.getSelectedFile();
+        try {
+          FileReader fileIn = new FileReader(file);
+          LineNumberReader in = new LineNumberReader(fileIn);
+          String filetag = in.readLine();
+          if (!filetag.equals("settings file v1")) {
+            JOptionPane.showMessageDialog(this,
+                                          file.getName() +
+                                          " is not a valid settings file");
+            in.close();
+            fileIn.close();
+          }
+          else{
+            settings = new Settings(file);
+            JOptionPane.showMessageDialog(this, "Settings loaded successfully");
+          }
+        }
+        catch (IOException ex) {
+        }
+        catch (HeadlessException ex) {
+        }
+
+    }
+
+  }
+
+  void jMenuItem13_actionPerformed(ActionEvent e) {
+    /**
+     * MENU: SETTINGS
+     */
+  }
+
+  void jButton12_actionPerformed(ActionEvent e) {
+    if(jInternalFrame4.isVisible()==false){
+      jDesktopPane1.add(jInternalFrame4);
+      jInternalFrame4.setSize(450, 350);
+      jInternalFrame4.setVisible(true);
+    }
+
+  }
+
+  void jSlider2_stateChanged(ChangeEvent e) {
+    int zoom = jSlider2.getValue();
+    jLabel21.setText("zoom: " + String.valueOf(10 * zoom) + "%");
+    drawPanel.CELL_SIZE = zoom;
+    drawPanel.setPreferredSize(
+        new Dimension(genecity.gui.MenuFrame.settings.getX() *
+                      drawPanel.CELL_SIZE,
+                      genecity.gui.MenuFrame.settings.getY() *
+                      drawPanel.CELL_SIZE));
+    drawPanel.revalidate();
+
+  }
+
+  void jSlider1_stateChanged(ChangeEvent e) {
+    int zoom2 = jSlider1.getValue();
+    jLabel20.setText("zoom: " + String.valueOf(10 * zoom2) + "%");
+    drawPanel2.CELL_SIZE = zoom2;
+    drawPanel2.setPreferredSize(
+        new Dimension(genecity.gui.MenuFrame.settings.getX() *
+                      drawPanel2.CELL_SIZE,
+                      genecity.gui.MenuFrame.settings.getY() *
+                      drawPanel2.CELL_SIZE));
+    drawPanel2.revalidate();
+
+  }
+
+  void jButton9_actionPerformed(ActionEvent e) {
+    int returnVal = jFileChooser1.showSaveDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = jFileChooser1.getSelectedFile();
+            String filename = file.toString();
+            if (Utilities.getExtension(file)==null){
+              filename = file.toString()+".grd";
+            }
+            else if (!Utilities.getExtension(file).equals("grd")){
+              filename = file.toString()+".grd";
+            }
+            try {
+              FileWriter fileOut = new FileWriter(filename);
+              PrintWriter out = new PrintWriter(fileOut);
+              out.println("settings file v1");
+              // Save environment settings
+              out.println(settings.getX());
+              out.println(settings.getY());
+              out.println(settings.getPopulation());
+              out.println(settings.getFoodRefreshRate());
+              out.println(settings.getVisionError());
+              out.println(settings.getFood());
+              out.println(settings.getObstacles());
+              out.println(settings.getTraps());
+              // save agent settings1
+              out.println(settings.getEnergy());
+              out.println(settings.getAgeingRate());
+              out.println(settings.getNumberOfRules());
+              out.println(settings.getGARate());
+              out.println(settings.getCommunicationRate());
+              out.println(settings.getExchangedRulesPercentage());
+
+              out.close();
+              fileOut.close();
+            }
+            catch (IOException ex) {
+            }
+        } else {
+
+        }
+
+  }
+
+  void jMenuItem2_actionPerformed(ActionEvent e) {
+    this.jButton9_actionPerformed(e);
+  }
+
+  void jButton13_actionPerformed(ActionEvent e) {
+    if(jInternalFrame5.isVisible()==false){
+      jDesktopPane1.add(jInternalFrame5);
+      jInternalFrame5.setSize(550, 350);
+      jInternalFrame5.setVisible(true);
+    }
+
+  }
+}
+
+class MenuFrame_jButton4_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton4_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton4_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton5_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton5_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton5_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jMenuItem3_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuItem3_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuItem3_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton1_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton1_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton1_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton2_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton2_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton2_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jMenuItem9_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuItem9_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuItem9_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jComboBox1_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jComboBox1_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jComboBox1_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton11_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton11_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton11_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton10_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton10_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton10_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton6_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton6_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton6_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jMenuItem13_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuItem13_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuItem13_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton12_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton12_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton12_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jSlider2_changeAdapter implements javax.swing.event.ChangeListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jSlider2_changeAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void stateChanged(ChangeEvent e) {
+    adaptee.jSlider2_stateChanged(e);
+  }
+}
+
+class MenuFrame_jSlider1_changeAdapter implements javax.swing.event.ChangeListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jSlider1_changeAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void stateChanged(ChangeEvent e) {
+    adaptee.jSlider1_stateChanged(e);
+  }
+}
+
+class MenuFrame_jButton9_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton9_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton9_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jMenuItem2_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuItem2_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuItem2_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton13_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton13_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton13_actionPerformed(e);
+  }
+}

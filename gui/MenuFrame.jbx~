@@ -1,0 +1,37 @@
+[PropertyInfo]
+borderLayout1,BorderLayout,false,false, , ,false,<default>
+gridBagLayout2,GridBagLayout,false,false, , ,false,<default>
+image1,ImageIcon,false,false, , ,false,<default>
+image2,ImageIcon,false,false, , ,false,<default>
+image3,ImageIcon,false,false, , ,false,<default>
+jButton1,JButton,false,false, , ,false,<default>
+jButton2,JButton,false,false, , ,false,<default>
+jButton3,JButton,false,false, , ,false,<default>
+jDesktopPane1,JDesktopPane,false,false, , ,false,<default>
+jInternalFrame1,JInternalFrame,false,false, , ,false,<default>
+jInternalFrame2,JInternalFrame,false,false, , ,false,<default>
+jMenu1,JMenu,false,false, , ,false,<default>
+jMenu2,JMenu,false,false, , ,false,<default>
+jMenuBar1,JMenuBar,false,false, , ,false,<default>
+jMenuFile,JMenu,false,false, , ,false,<default>
+jMenuFileExit,JMenuItem,false,false, , ,false,<default>
+jMenuHelp,JMenu,false,false, , ,false,<default>
+jMenuHelpAbout,JMenuItem,false,false, , ,false,<default>
+jMenuItem1,JMenuItem,false,false, , ,false,<default>
+jMenuItem2,JMenuItem,false,false, , ,false,<default>
+jMenuItem3,JMenuItem,false,false, , ,false,<default>
+jMenuItem4,JMenuItem,false,false, , ,false,<default>
+jMenuItem5,JMenuItem,false,false, , ,false,<default>
+jMenuItem6,JMenuItem,false,false, , ,false,<default>
+jMenuItem7,JMenuItem,false,false, , ,false,<default>
+jMenuItem8,JMenuItem,false,false, , ,false,<default>
+jSlider1,JSlider,false,false, , ,false,<default>
+jToolBar,JToolBar,false,false, , ,false,<default>
+jTree1,JTree,false,false, , ,false,<default>
+SAGFrame,boolean,false,false, , ,false,<default>
+statusBar,JLabel,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

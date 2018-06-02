@@ -1,0 +1,30 @@
+[PropertyInfo]
+ageingRate,int,false,false, , ,true,<default>
+communicationRate,int,false,false, , ,true,<default>
+energy,int,false,false, , ,true,<default>
+exchangedRulesPercentage,int,false,false, , ,true,<default>
+food,int,false,false, , ,true,<default>
+FOOD_DEFAULT,int,false,false, , ,true,<default>
+FOOD_MAX,int,false,false, , ,true,<default>
+foodRefreshRate,int,false,false, , ,true,<default>
+GARate,int,false,false, , ,true,<default>
+GArate,int,false,false, , ,true,<default>
+gaRate,int,false,false, , ,false,<default>
+numberOfRules,int,false,false, , ,true,<default>
+obstacles,int,false,false, , ,true,<default>
+OBSTACLES_DEFAULT,int,false,false, , ,true,<default>
+OBSTACLES_MAX,int,false,false, , ,true,<default>
+population,int,false,false, , ,true,<default>
+traps,int,false,false, , ,true,<default>
+TRAPS_DEFAULT,int,false,false, , ,true,<default>
+TRAPS_MAX,int,false,false, , ,true,<default>
+visionError,int,false,false, , ,true,<default>
+x,int,false,false, , ,true,<default>
+X,int,false,false, , ,false,<default>
+y,int,false,false, , ,true,<default>
+Y,int,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

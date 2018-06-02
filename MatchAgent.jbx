@@ -1,0 +1,21 @@
+[PropertyInfo]
+codec,Codec,false,false, , ,false,<default>
+femaleList,List,false,false, , ,false,<default>
+femaleVector,Vector,false,false, , ,false,<default>
+m1,ContentManager,false,false, , ,false,<default>
+maleList,List,false,false, , ,false,<default>
+maleVector,Vector,false,false, , ,false,<default>
+matchCounter1,int,false,false, , ,false,<default>
+matchCounter2,int,false,false, , ,false,<default>
+matesList,List,false,false, , ,false,<default>
+ontology,Ontology,false,false, , ,false,<default>
+p2,Person,false,false, , ,false,<default>
+progressBarValue,int,false,false, , ,false,<default>
+sexList,List,false,false, , ,false,<default>
+temp,Vector,false,false, , ,false,<default>
+vectorOfPersons,Vector,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

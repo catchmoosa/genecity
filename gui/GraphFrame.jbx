@@ -1,0 +1,10 @@
+[PropertyInfo]
+data,EditableChartDataModel,false,false, , ,false,<default>
+panel,ChartPanel,false,false, , ,false,<default>
+t,javax.swing.Timer,false,false, , ,false,<default>
+time,double,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

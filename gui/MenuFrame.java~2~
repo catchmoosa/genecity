@@ -1,0 +1,233 @@
+package genecity.gui;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * <p>Title: GeneCity</p>
+ * <p>Description: Epidemiological Simulation of a Hereditary Disease in a Multi-Agent System</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Eliades G. Demetrios
+ * @version 1.0
+ */
+
+public class MenuFrame extends JFrame {
+  JPanel contentPane;
+  JMenuBar jMenuBar1 = new JMenuBar();
+  JMenu jMenuFile = new JMenu();
+  JMenuItem jMenuFileExit = new JMenuItem();
+  JMenu jMenuHelp = new JMenu();
+  JMenuItem jMenuHelpAbout = new JMenuItem();
+  JToolBar jToolBar = new JToolBar();
+  JButton jButton1 = new JButton();
+  JButton jButton2 = new JButton();
+  JButton jButton3 = new JButton();
+  ImageIcon image1;
+  ImageIcon image2;
+  ImageIcon image3;
+  JLabel statusBar = new JLabel();
+  BorderLayout borderLayout1 = new BorderLayout();
+  JDesktopPane jDesktopPane1 = new JDesktopPane();
+  boolean SAGFrame=false;
+  JMenuItem jMenuItem1 = new JMenuItem();
+  JMenuItem jMenuItem2 = new JMenuItem();
+  JMenuItem jMenuItem3 = new JMenuItem();
+  JMenu jMenu1 = new JMenu();
+  JMenuItem jMenuItem4 = new JMenuItem();
+  JMenuItem jMenuItem5 = new JMenuItem();
+  JMenuItem jMenuItem6 = new JMenuItem();
+  JMenuItem jMenuItem7 = new JMenuItem();
+  JMenu jMenu2 = new JMenu();
+  JMenuItem jMenuItem8 = new JMenuItem();
+  JInternalFrame jInternalFrame1 = new JInternalFrame();
+  JInternalFrame jInternalFrame2 = new JInternalFrame();
+  GridBagLayout gridBagLayout2 = new GridBagLayout();
+  JSlider jSlider1 = new JSlider();
+
+
+  //Construct the frame
+  public MenuFrame() {
+    enableEvents(AWTEvent.WINDOW_EVENT_MASK);
+    try {
+      jbInit();
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  //Component initialization
+  private void jbInit() throws Exception  {
+    setIconImage(Toolkit.getDefaultToolkit().createImage("smallogo.gif"));
+    image1 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("openFile.png"));
+    image2 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("closeFile.png"));
+    image3 = new ImageIcon(genecity.gui.MenuFrame.class.getResource("help.png"));
+    contentPane = (JPanel) this.getContentPane();
+    contentPane.setLayout(borderLayout1);
+    this.setSize(new Dimension(610, 498));
+    this.setTitle("GeneCity Simulation");
+
+    statusBar.setText(" ");
+    jMenuFile.setText("File");
+    jMenuFileExit.setText("Exit");
+    jMenuFileExit.addActionListener(new MenuFrame_jMenuFileExit_ActionAdapter(this));
+    jMenuHelp.setText("Help");
+    jMenuHelpAbout.setText("About");
+    jMenuHelpAbout.addActionListener(new MenuFrame_jMenuHelpAbout_ActionAdapter(this));
+    jButton1.setIcon(image1);
+    jButton1.setText("Single Agent Grid");
+    jButton1.addActionListener(new MenuFrame_jButton1_actionAdapter(this));
+    jButton1.setToolTipText("Open File");
+    jButton1.setBorderPainted(true);
+    jButton2.setIcon(image2);
+    jButton2.setText("Family Network");
+    jButton2.addActionListener(new MenuFrame_jButton2_actionAdapter(this));
+    jButton2.setToolTipText("Close File");
+    jButton3.setIcon(image3);
+    jButton3.setText("Run");
+    jButton3.setToolTipText("Help");
+    jMenuItem1.setText("New");
+    jMenuItem2.setText("Save");
+    jMenuItem3.setText("Load");
+    jMenu1.setText("Settings");
+    jMenuItem4.setText("Demographic");
+    jMenuItem5.setText("Medical");
+    jMenuItem6.setText("Social");
+    jMenuItem7.setText("General");
+    jMenu2.setText("JADE");
+    jMenuItem8.setText("Launch");
+    jInternalFrame1.setClosable(false);
+    jInternalFrame1.setClosed(false);
+    jInternalFrame1.setIcon(false);
+    jInternalFrame1.setIconifiable(true);
+    jInternalFrame1.setJMenuBar(null);
+    jInternalFrame1.setLayer(0);
+    jInternalFrame1.setMaximizable(false);
+    jInternalFrame1.setNormalBounds(new Rectangle(10, 10, 400, 400));
+    jInternalFrame1.setResizable(true);
+    jInternalFrame1.setTitle("Settings");
+    jInternalFrame1.setDebugGraphicsOptions(0);
+    jInternalFrame1.setDoubleBuffered(false);
+    jInternalFrame1.setMinimumSize(new Dimension(83, 26));
+    jInternalFrame1.setPreferredSize(new Dimension(400, 400));
+    jInternalFrame1.getContentPane().setLayout(null);
+    jInternalFrame2.getContentPane().setLayout(gridBagLayout2);
+    jInternalFrame2.setIcon(false);
+    jInternalFrame2.setIconifiable(true);
+    jInternalFrame2.setNormalBounds(new Rectangle(10, 10, 400, 400));
+    jInternalFrame2.setTitle("Family Network Grid");
+    jInternalFrame2.setPreferredSize(new Dimension(100, 100));
+    jToolBar.add(jButton1);
+    jToolBar.add(jButton2);
+    jToolBar.add(jButton3);
+    jMenuFile.add(jMenuItem1);
+    jMenuFile.add(jMenuItem2);
+    jMenuFile.add(jMenuItem3);
+    jMenuFile.addSeparator();
+    jMenuFile.add(jMenuFileExit);
+    jMenuHelp.add(jMenuHelpAbout);
+    jMenuBar1.add(jMenuFile);
+    jMenuBar1.add(jMenu1);
+    jMenuBar1.add(jMenu2);
+    jMenuBar1.add(jMenuHelp);
+    this.setJMenuBar(jMenuBar1);
+    contentPane.add(jToolBar, BorderLayout.NORTH);
+    contentPane.add(statusBar, BorderLayout.SOUTH);
+    contentPane.add(jDesktopPane1, BorderLayout.CENTER);
+    jMenu1.add(jMenuItem7);
+    jMenu1.add(jMenuItem4);
+    jMenu1.add(jMenuItem5);
+    jMenu1.add(jMenuItem6);
+    jMenu2.add(jMenuItem8);
+    jInternalFrame2.getContentPane().add(jSlider1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0
+            ,GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+    setSize(800,600);
+  }
+  //File | Exit action performed
+  public void jMenuFileExit_actionPerformed(ActionEvent e) {
+    System.exit(0);
+  }
+  //Help | About action performed
+  public void jMenuHelpAbout_actionPerformed(ActionEvent e) {
+    MenuFrame_AboutBox dlg = new MenuFrame_AboutBox(this);
+    Dimension dlgSize = dlg.getPreferredSize();
+    Dimension frmSize = getSize();
+    Point loc = getLocation();
+    dlg.setLocation((frmSize.width - dlgSize.width) / 2 + loc.x, (frmSize.height - dlgSize.height) / 2 + loc.y);
+    dlg.setModal(true);
+    dlg.pack();
+    dlg.show();
+  }
+  //Overridden so we can exit when window is closed
+  protected void processWindowEvent(WindowEvent e) {
+    super.processWindowEvent(e);
+    if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+      jMenuFileExit_actionPerformed(null);
+    }
+  }
+
+  void jButton1_actionPerformed(ActionEvent e) {
+    if (SAGFrame==false){
+    jDesktopPane1.add(jInternalFrame1);
+    jInternalFrame1.setSize(400, 400);
+    jInternalFrame1.setVisible(true);
+/**      JInternalFrame frameSAG = new JInternalFrame("Unmarried Agent Grid",true,false,true,true);
+//Container container = frameSAG.getContentPane();
+      jDesktopPane1.add(frameSAG);
+      frameSAG.setSize(200, 400);
+      frameSAG.setVisible(true);*/
+      SAGFrame=true;
+    }
+  }
+
+  void jButton2_actionPerformed(ActionEvent e) {
+    jDesktopPane1.add(jInternalFrame2);
+    jInternalFrame2.setSize(400,400);
+    jInternalFrame2.setVisible(true);
+  }
+}
+
+class MenuFrame_jMenuFileExit_ActionAdapter implements ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuFileExit_ActionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuFileExit_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jMenuHelpAbout_ActionAdapter implements ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jMenuHelpAbout_ActionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jMenuHelpAbout_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton1_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton1_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton1_actionPerformed(e);
+  }
+}
+
+class MenuFrame_jButton2_actionAdapter implements java.awt.event.ActionListener {
+  MenuFrame adaptee;
+
+  MenuFrame_jButton2_actionAdapter(MenuFrame adaptee) {
+    this.adaptee = adaptee;
+  }
+  public void actionPerformed(ActionEvent e) {
+    adaptee.jButton2_actionPerformed(e);
+  }
+}

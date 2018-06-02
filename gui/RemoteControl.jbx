@@ -1,0 +1,70 @@
+[PropertyInfo]
+borderLayout1,BorderLayout,false,false, , ,false,<default>
+borderLayout2,BorderLayout,false,false, , ,false,<default>
+borderLayout3,BorderLayout,false,false, , ,false,<default>
+borderLayout4,BorderLayout,false,false, , ,false,<default>
+i11,ImageIcon,false,false, , ,false,<default>
+i111,ImageIcon,false,false, , ,false,<default>
+i12,ImageIcon,false,false, , ,false,<default>
+i121,ImageIcon,false,false, , ,false,<default>
+i21,ImageIcon,false,false, , ,false,<default>
+i211,ImageIcon,false,false, , ,false,<default>
+i22,ImageIcon,false,false, , ,false,<default>
+i221,ImageIcon,false,false, , ,false,<default>
+i31,ImageIcon,false,false, , ,false,<default>
+i311,ImageIcon,false,false, , ,false,<default>
+i32,ImageIcon,false,false, , ,false,<default>
+i321,ImageIcon,false,false, , ,false,<default>
+i40,ImageIcon,false,false, , ,false,<default>
+i42,ImageIcon,false,false, , ,false,<default>
+i45,ImageIcon,false,false, , ,false,<default>
+image1,ImageIcon,false,false, , ,false,<default>
+image2,ImageIcon,false,false, , ,false,<default>
+image3,ImageIcon,false,false, , ,false,<default>
+jButton2,JButton,false,false, , ,false,<default>
+jButton3,JButton,false,false, , ,false,<default>
+jLabel1,JLabel,false,false, , ,false,<default>
+jLabel10,JLabel,false,false, , ,false,<default>
+jLabel11,JLabel,false,false, , ,false,<default>
+jLabel12,JLabel,false,false, , ,false,<default>
+jLabel13,JLabel,false,false, , ,false,<default>
+jLabel14,JLabel,false,false, , ,false,<default>
+jLabel15,JLabel,false,false, , ,false,<default>
+jLabel16,JLabel,false,false, , ,false,<default>
+jLabel17,JLabel,false,false, , ,false,<default>
+jLabel2,JLabel,false,false, , ,false,<default>
+jLabel3,JLabel,false,false, , ,false,<default>
+jLabel4,JLabel,false,false, , ,false,<default>
+jLabel5,JLabel,false,false, , ,false,<default>
+jLabel6,JLabel,false,false, , ,false,<default>
+jLabel7,JLabel,false,false, , ,false,<default>
+jLabel8,JLabel,false,false, , ,false,<default>
+jLabel9,JLabel,false,false, , ,false,<default>
+jPanel1,JPanel,false,false, , ,false,<default>
+jPanel10,JPanel,false,false, , ,false,<default>
+jPanel2,JPanel,false,false, , ,false,<default>
+jPanel3,JPanel,false,false, , ,false,<default>
+jPanel4,JPanel,false,false, , ,false,<default>
+jPanel5,JPanel,false,false, , ,false,<default>
+jPanel6,JPanel,false,false, , ,false,<default>
+jPanel7,JPanel,false,false, , ,false,<default>
+jPanel8,JPanel,false,false, , ,false,<default>
+jPanel9,JPanel,false,false, , ,false,<default>
+jProgressBar1,JProgressBar,false,false, , ,false,<default>
+jScrollPane1,JScrollPane,false,false, , ,false,<default>
+jSlider1,JSlider,false,false, , ,false,<default>
+jSlider2,JSlider,false,false, , ,false,<default>
+jSlider3,JSlider,false,false, , ,false,<default>
+jSlider4,JSlider,false,false, , ,false,<default>
+jSplitPane1,JSplitPane,false,false, , ,false,<default>
+jTabbedPane1,JTabbedPane,false,false, , ,false,<default>
+jTextArea1,JTextArea,false,false, , ,false,<default>
+rcWeight1,int,false,false, , ,false,<default>
+rcWeight2,int,false,false, , ,false,<default>
+rcWeight3,int,false,false, , ,false,<default>
+rcWeight4,int,false,false, , ,false,<default>
+[IconNames]
+
+
+
+
